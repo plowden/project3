@@ -1,0 +1,35 @@
+// Load data from nba_draft.csv
+d3.csv("data/nba_draft.csv").then(function(draftData) {
+
+  // console.log(draftData);
+
+  // log a list of names
+  var names = draftData.map(data => data.player);
+  console.log("names", names);
+
+  // Cast each hours value in tvData as a number using the unary + operator
+  draftData.forEach(function(data) {
+    console.log("Name:", data.name);
+  });
+}).catch(function(error) {
+  console.log(error);
+});
+
+function showTable(){
+
+        d3.text("data/nba_draft.csv", function(data) {
+            var parsedCSV = d3.csv.parseRows(data);
+
+            var container = d3.select("#draftTable")
+                .append("table")
+
+                .selectAll("tr")
+                    .data(parsedCSV).enter()
+                    .append("tr")
+
+                .selectAll("td")
+                    .data(function(d) { return d; }).enter()
+                    .append("td")
+                    .text(function(d) { return d; });
+}
+

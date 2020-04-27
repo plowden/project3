@@ -12,11 +12,13 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- link to stylesheets -->
   <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
-<body>
+<body onload="showTable();">
 <!-- navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightblue">
         <a class="navbar-brand" href="index.html">NBA Draft Model Home</a>
@@ -44,64 +46,12 @@
   <div class="container">
     <!-- top row spacer -->
     <div class="row spacer">
-            <div class="col-12 top-spacer"></div>
+       <div class="col-12 top-spacer"></div>
     </div>
+  </div>
 
-    <!-- main content - first row -->
-    <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <h1>NBA Draft Data</h1>
-           <p align="justify">
-                This website .... 
-            </p>
-
-           <p align="justify">
-                Data Sources:
-                <ul>
-                    <li><a href="https://stats.nba.com/draft/history/" target="_blank">NBA Draft History</a></li>
-                    <li><a href="https://sportsreference.readthedocs.io/en/stable/ncaab.html#player" target="_blank">NCAA Sportsreference NCAA API</a> </li>
-                </ul>
-            </p>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <h3>Second Row</h3>
-        </div>
-    </div>
-
-    <!-- spacer between sections -->
-    <div class="row spacer">
-            <div class="col-12 top-spacer"></div>
-    </div>
-
-    <!-- second row of buttons and graph icons -->
-    <div class="row">
-        <div class="col-md-3">
-          <a class="sub-title impact" href="index.html">
-                <h4>1</h4>
-                <img class="thumbnail" src="assets/images/nba-logoman-word-white.svg" alt="NBA Logo">
-          </a>
-        </div>
-        <div class="col-md-3">
-            <a class="sub-title impact" href="index.html">
-                <h4>2</h4>
-                <img class="thumbnail" src="assets/images/nba-logoman-word-white.svg" alt="NBA Logo">
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="sub-title impact" href="index.html">
-                <h4>3</h4>
-                <img class="thumbnail" src="assets/images/nba-logoman-word-white.svg" alt="NBA Logo">
-            </a>
-        </div>
-        <div class="col-md-3">
-            <a class="sub-title impact" href="index.html">
-                <h4>4</h4>
-                <img class="thumbnail" src="assets/images/nba-logoman-word-white.svg" alt="NBA Logo">
-            </a>
-        </div>
-    </div>
+  <!-- main content - first row -->
+  <div id="draftTable" class="col-12"> </div>
 
   <!-- Footer-->
     <div class='footer'>
@@ -122,9 +72,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-
   <!-- reference files -->
-  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="assets/js/nba_draft.js"></script>
+
 
 </body>
 
