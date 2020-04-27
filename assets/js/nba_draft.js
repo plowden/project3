@@ -1,17 +1,19 @@
-// Load data from nba_draft.csv
-d3.csv("../../nba_draft.csv").then(function(draftData) {
+function showTable() {
 
-  // console.log(draftData);
+    d3.text("data/nba_draft.csv", function (data) {
+    console.log("function running");
+    var rows = d3.csv.parseRows(data);
+    var tbl = d3.select("#draftTable")
+        .append("table")
 
-  // log a list of names
-  var names = draftData.map(data => data.player);
-  console.log("names", names);
+        .selectAll("tr")
+        .data(rows).enter()
+        .append("tr")
 
-  // Cast each hours value in tvData as a number using the unary + operator
-  draftData.forEach(function(data) {
-    console.log("Name:", data.name);
-  });
-}).catch(function(error) {
-  console.log(error);
+        .selectAll("td")
+        .data(function(d) { return d; }).enter()
+        .append("td")
+        .text(function(d) { return d; });
+
 });
-
+}
