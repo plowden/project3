@@ -1,19 +1,23 @@
-function showTable() {
+d3.text("data/nba_draft.csv").then(function(data) {
+    var rows = d3.csvParseRows(data);
+    //console.log(rows);
+ 
+    var table = d3.select("#draftTable")
+        .append("table");
 
-    d3.text("data/nba_draft.csv", function (data) {
-    console.log("function running");
-    var rows = d3.csv.parseRows(data);
-    var tbl = d3.select("#draftTable")
-        .append("table")
+    table.append('thead').append('tr')
+        .selectAll('th')
+        .data(rows[0]).enter()
+        .append('th')
+        .text(function(d){return d;});
 
+    table.append("tbody")
         .selectAll("tr")
-        .data(rows).enter()
+        .data(rows.slice(1)).enter()
         .append("tr")
-
         .selectAll("td")
-        .data(function(d) { return d; }).enter()
+        .data(function(d){return d;}).enter()
         .append("td")
-        .text(function(d) { return d; });
-
+        .text(function(d){return d;})
 });
-}
+

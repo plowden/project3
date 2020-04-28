@@ -1,0 +1,38 @@
+function runcode(){
+alert("clicked"); 
+}
+var dataset = d3.csv("data/nba_draft.csv").then(function(data) {
+  alert("dataset"); 
+  return data;
+});
+
+var table = dataset.then(function(data) {
+  alert("table"); 
+  var parsedCSV = d3.csvParseRows(data);
+  var container = d3.select("#draftTable")
+    .append("table")
+    .selectAll("tr")
+    .data(parsedCSV).enter()
+    .append("tr")
+    .selectAll("td")
+    .data(function(d) { return d; }).enter()
+    .append("td")
+    .text(function(d) { return d; });
+});
+
+function showTable() {
+        d3.text("data/nba_draft.csv", function(data) {
+            var parsedCSV = d3.csv.parseRows(data);
+
+            var container = d3.select("#draftTable")
+                .append("table")
+                .selectAll("tr")
+                    .data(parsedCSV).enter()
+                    .append("tr")
+                .selectAll("td")
+                    .data(function(d) { return d; }).enter()
+                    .append("td")
+                    .text(function(d) { return d; });
+});
+}
+
