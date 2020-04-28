@@ -1,4 +1,0 @@
-    d3.text("data/nba_draft.csv", function (data) {
-    console.log("running");
-    console.log(data);
-});
