@@ -1,0 +1,30 @@
+function runcode(){
+alert("clicked"); 
+}
+var dataset = d3.csv("data/nba_draft.csv").then(function(data) {
+  //alert("dataset"); 
+  return data;
+});
+
+var rows = dataset.then(function(value) {
+  //alert("rows"); 
+  console.log(value);
+  return Promise.all(value.map(function(results){
+   return [results.player, results.year];
+  }))
+});
+
+rows.then(function(data) {
+    //alert("table"); 
+    return d3.select("#draftTable")
+      .append("table")
+      .selectAll("tr")
+        .data(data).enter()
+        .append("tr")
+        .selectAll("td")
+        .data(function(d) { return d; }).enter()
+        .append("td")
+        .text(function(d) { return d; });
+
+});
+

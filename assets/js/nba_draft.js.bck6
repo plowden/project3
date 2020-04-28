@@ -1,0 +1,19 @@
+function runcode(){
+alert("clicked"); 
+}
+var dataset = d3.csv("data/nba_draft.csv").then(function(data) {
+  alert("dataset"); 
+  return data;
+});
+
+var rows = dataset.then(function(value) {
+  alert("rows"); 
+  return Promise.all(value.map(function(results){
+    return [results.player, results.year];
+  }))
+});
+
+rows.then(function(data) {
+    alert("table"); 
+    return d3.select("body").append("p").text(data);
+});

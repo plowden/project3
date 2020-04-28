@@ -18,7 +18,9 @@
 
 </head>
 
-<body onload="showTable();">
+<!-- <body onload="showTable();"> -->
+<!-- <body onload="runcode();"> -->
+<body>
 <!-- navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightblue">
         <a class="navbar-brand" href="index.html">NBA Draft Model Home</a>
@@ -51,7 +53,7 @@
   </div>
 
   <!-- main content - first row -->
-  <div id="draftTable" class="col-12"> </div>
+  <div id="draftTable" class="col-12" style="overflow-x:auto;"></div>
 
   <!-- Footer-->
     <div class='footer'>
@@ -72,6 +74,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
   <!-- reference files -->
   <script type="text/javascript" src="assets/js/nba_draft.js"></script>
 
